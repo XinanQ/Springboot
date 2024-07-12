@@ -9,8 +9,10 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+   private UserService userService;
+   public UserController(UserService userService) {
+        this.userService = userService;
+   }
 
     @PostMapping
     public void addUser(@RequestBody User user) {
