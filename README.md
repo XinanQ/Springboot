@@ -9,8 +9,6 @@ Spring02
 ├── src
 │ ├── main
 │ │ ├── java
-│ │ │ |
-│ │ │ |
 │ │ │ ├── Application.java
 │ │ │ ├── controller
 │ │ │ │ └── UserController.java
