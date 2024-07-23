@@ -5,27 +5,7 @@
 这是一个使用 Spring Boot、MyBatis 和 MySQL 实现的简单用户管理系统。项目包含用户信息的增、删、改、查的功能.
 
 ## demo
-Spring02
-├── src
-│ ├── main
-│ │ ├── java
-│ │ │ |
-│ │ │ |
-│ │ │ ├── Application.java
-│ │ │ ├── controller
-│ │ │ │ └── UserController.java
-│ │ │ ├── dao
-│ │ │ │ └── UserDao.java
-│ │ │ ├── mapper
-│ │ │ │ └── UserMapper.java
-│ │ │ ├── model
-│ │ │ │ └── User.java
-│ │ │ └── service
-│ │ │ ├── UserService.java
-│ │ │ └── UserServiceImpl.java
-│ └── resources
-│ ├── application.properties
-├── pom.xml
+在pdf文件中展示代码结构
 
 ## DemoApplication.java class
 这是包含'main' 方法的Spring boot应用主类，通过调用 SpringApplication.run 方法启动 Spring Boot 应用.
