@@ -4,9 +4,6 @@
 
 这是一个使用 Spring Boot、MyBatis 和 MySQL 实现的简单用户管理系统。项目包含用户信息的增、删、改、查的功能.
 
-## demo
-在pdf文件中展示代码结构
-
 ## DemoApplication.java class
 这是包含'main' 方法的Spring boot应用主类，通过调用 SpringApplication.run 方法启动 Spring Boot 应用.
 @SpringBootApplication 注释用于启用 Spring Boot 的自动配置、组件扫描和 Spring Bean 的初始化.
