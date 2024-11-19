@@ -1,51 +1,52 @@
 # Springboot
 
-## 简介
+Overview
+This is a simple user management system implemented using Spring Boot, MyBatis, and MySQL. The project includes features for creating, updating, deleting, and retrieving user information.
 
-这是一个使用 Spring Boot、MyBatis 和 MySQL 实现的简单用户管理系统。项目包含用户信息的增、删、改、查的功能.
+Key Components
+DemoApplication.java
+This is the main class of the Spring Boot application that contains the main method. It starts the Spring Boot application by calling the SpringApplication.run method. The @SpringBootApplication annotation enables auto-configuration, component scanning, and Spring Bean initialization.
 
-## DemoApplication.java class
-这是包含'main' 方法的Spring boot应用主类，通过调用 SpringApplication.run 方法启动 Spring Boot 应用.
-@SpringBootApplication 注释用于启用 Spring Boot 的自动配置、组件扫描和 Spring Bean 的初始化.
+UserController.java
+The controller class for user management. It defines methods for adding, deleting, updating, and retrieving users by invoking the corresponding operations in the UserService.
 
-## UserController.java class
-用户的控制器类，定义了用户增加、删除、updata、获取的方法，并通过调用 UserService 来执行相应的操作.
+UserService.java
+This is the service interface that defines business operations related to user management. The methods in this interface are implemented by the UserServiceImpl class.
 
-## UserService.java class
-用户服务接口，定义了用户相关的业务操作。这些方法将由 UserServiceImpl 实现.
+UserServiceImpl.java
+The implementation class of the UserService interface. It performs the CRUD operations by interacting with the UserDao.
 
-## UserServiceimpl.java class
-用户服务实现类，实现了 UserService 接口。通过调用 UserDao 执行数据库操作，实现了用户的增删改查功能
+UserDao.java
+The data access object (DAO) responsible for interacting with the database. It uses methods defined in the UserMapper interface with MyBatis annotations to execute SQL operations.
 
-## UserDao.java class
-用户数据访问对象，负责与数据库交互。通过调用 UserMapper 中定义的 MyBatis注释，实现用户信息的数据库操作
+UserMapper.java
+The MyBatis mapper interface where SQL queries for user management are defined using annotations. Each method corresponds to a SQL statement for inserting, deleting, updating, or querying user information.
 
-## UserMapper.java class
-用户映射器接口，使用 MyBatis 注释定义 SQL 操作。每个方法都对应一个 SQL 语句，用于插入、删除、更新和查询用户信息
+User.java
+The user model class that defines the properties of a user (e.g., ID, username, gender, age, etc.). It also includes the necessary getter, setter, and other basic methods.
 
-## User.java class
-用户模型类，定义了用户的属性（如 ID、用户名、性别、年龄等）以及相应的 getter 和 setter等基础方法
+application.properties
+The configuration file for the Spring Boot application. It contains database connection settings and MyBatis configurations.
 
-## application.properties class
-Spring Boot 应用的配置文件，包含数据库连接配置和 MyBatis 的配置
+pom.xml
+The Maven configuration file that defines the project dependencies and build plugins. Key dependencies include Spring Boot, MyBatis, MySQL Connector, JUnit 5, and Mockito for testing.
 
-## pom.xml
-Maven 项目的配置文件，定义了项目的依赖项和构建插件。包含 Spring Boot 的依赖项、MyBatis 的依赖项、MySQL 的连接器、JUnit 5 和 Mockito 的测试依赖项
+Database Setup
+The following SQL script is used to create and configure the database table. It has already been imported into the local environment:
 
-## 数据库创建 （已在本地编译器中导入sql文件）
-
+sql
 CREATE DATABASE db1;
 USE db1;
 CREATE TABLE users (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '主键',
-    username VARCHAR(50) NOT NULL COMMENT '用户名',
-    gender TINYINT(1) NOT NULL COMMENT '性别',
-    age INT NOT NULL COMMENT '年龄',
-    create_user VARCHAR(40) NOT NULL COMMENT '创建人标识',
-    create_user_name VARCHAR(128) NOT NULL COMMENT '创建人姓名',
-    create_time DATETIME NOT NULL COMMENT '创建时间',
-    update_user VARCHAR(40) NOT NULL COMMENT '最后更新人标识',
-    update_user_name VARCHAR(128) NOT NULL COMMENT '最后更新人姓名',
-    update_time DATETIME NOT NULL COMMENT '最后更新时间',
-    is_delete TINYINT(1) DEFAULT 0 NOT NULL COMMENT '删除标记：0未删除 1已删除'
+    id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT 'Primary Key',
+    username VARCHAR(50) NOT NULL COMMENT 'Username',
+    gender TINYINT(1) NOT NULL COMMENT 'Gender',
+    age INT NOT NULL COMMENT 'Age',
+    create_user VARCHAR(40) NOT NULL COMMENT 'Creator Identifier',
+    create_user_name VARCHAR(128) NOT NULL COMMENT 'Creator Name',
+    create_time DATETIME NOT NULL COMMENT 'Creation Time',
+    update_user VARCHAR(40) NOT NULL COMMENT 'Last Updater Identifier',
+    update_user_name VARCHAR(128) NOT NULL COMMENT 'Last Updater Name',
+    update_time DATETIME NOT NULL COMMENT 'Last Update Time',
+    is_delete TINYINT(1) DEFAULT 0 NOT NULL COMMENT 'Delete Flag: 0 - Not Deleted, 1 - Deleted'
 );
